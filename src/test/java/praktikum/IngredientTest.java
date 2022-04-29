@@ -26,19 +26,21 @@ public class IngredientTest implements SetUp {
     @Override
     @Before
     public void createObject() {
-        ingredient=new Ingredient(expectedType,expectedName,expectedPrice);
+        ingredient = new Ingredient(expectedType, expectedName, expectedPrice);
     }
- @Parameterized.Parameters
- public static Object[][] IngredientTestData(){
+
+    @Parameterized.Parameters
+    public static Object[][] IngredientTestData() {
         return new Object[][]{
-                {SAUCE,"T",100},
-                {FILLING,"Кириллица", 0.1f},
-                {null,null,0},
-                {SAUCE," ТЕСТ", 2.99f},
-                {FILLING,"!@# ", 999999999.999f},
-                {null,"Test Name", -0.01f}
+                {SAUCE, "T", 100},
+                {FILLING, "Кириллица", 0.1f},
+                {null, null, 0},
+                {SAUCE, " ТЕСТ", 2.99f},
+                {FILLING, "!@# ", 999999999.999f},
+                {null, "Test Name", -0.01f}
         };
- }
+    }
+
     @Test
     public void getNameParameterizedParametersGetValue() {
         String actualName = ingredient.getName();
@@ -50,9 +52,10 @@ public class IngredientTest implements SetUp {
         float actualPrice = ingredient.getPrice();
         Assert.assertEquals("Incorrect price", expectedPrice, actualPrice, 0);
     }
+
     @Test
-    public void getIngredientTypeParameterizedParametersGetValue(){
-        IngredientType actualType=ingredient.getType();
-        Assert.assertEquals("Incorrect type",expectedType,actualType);
+    public void getIngredientTypeParameterizedParametersGetValue() {
+        IngredientType actualType = ingredient.getType();
+        Assert.assertEquals("Incorrect type", expectedType, actualType);
     }
 }
